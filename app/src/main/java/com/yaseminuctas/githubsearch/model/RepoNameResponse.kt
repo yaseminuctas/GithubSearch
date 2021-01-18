@@ -10,10 +10,10 @@ class RepoNameResponse {
     var incompleteResults: Boolean? = false
 
     @SerializedName("items")
-    var items: List<Item>? = emptyList()
+    var items: List<ItemRepoName>? = emptyList()
 
 
-    data class Item(
+    data class ItemRepoName(
         @SerializedName("id")
         var id: Int? = 0,
 

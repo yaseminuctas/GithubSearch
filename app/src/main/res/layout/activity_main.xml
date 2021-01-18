@@ -1,18 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.MainActivity">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <variable
+            name="viewModel"
+            type="com.yaseminuctas.githubsearch.viewmodel.MainViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/toolbar_height"
+            android:background="@color/colorOrange"
+            android:gravity="center"
+            app:title="@string/app_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:titleTextColor="@color/colorWhite" />
+
+        <SearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/toolbar_height"
+            android:iconifiedByDefault="false"
+            android:layout_marginTop="@dimen/sixteen"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            android:queryHint="@string/app_name"
+            app:iconifiedByDefault="false" />
+
+        <ImageView
+            android:id="@+id/img_loading"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_below="@+id/searchView"
+            android:layout_centerInParent="true"
+            android:scaleType="centerCrop"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/sixteen"
+            app:layout_constraintTop_toBottomOf="@id/searchView"
+            android:src="@drawable/loading"
+            />
+        <!--
+       <EditText
+           android:id="@+id/edtSearch"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+          android:layout_marginStart="15dp"
+           android:layout_marginEnd="15dp"
+           android:autofillHints="Search"
+           android:inputType="text"
+           android:layout_marginTop="@dimen/toolbar_height"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+
+
+       <com.google.android.material.tabs.TabLayout
+           android:id="@+id/tabs"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:minHeight="?actionBarSize"
+           app:layout_constraintTop_toBottomOf="@id/edtSearch"
+           android:layout_marginTop="@dimen/toolbar_height"
+           android:background="@color/colorPrimary"
+           app:tabTextColor="@color/colorAccent"
+           app:tabGravity="fill"
+           app:tabMode="fixed" />
+
+       <androidx.viewpager.widget.ViewPager
+           android:id="@+id/viewPagerSearch"
+           android:background="@color/colorOrange"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           app:layout_constraintTop_toBottomOf="@id/tabs"/> -->
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sixteen"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/searchView"
+            app:tabMode="fixed"
+            app:tabRippleColor="@android:color/transparent"
+            app:tabSelectedTextColor="#474e4f"
+            app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
+            app:tabTextColor="#a5474e4f" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#f0f0f0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tabLayout" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerCategories"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

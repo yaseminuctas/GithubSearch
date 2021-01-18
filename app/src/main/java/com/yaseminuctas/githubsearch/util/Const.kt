@@ -1,7 +1,7 @@
-package com.yaseminuctas.mvvm.util
+package com.yaseminuctas.githubsearch.util
 
 object Const {
 
-    val BASE_URL = "https://api.github.com/"
+    const val BASE_URL = "https://api.github.com/"
 
 }

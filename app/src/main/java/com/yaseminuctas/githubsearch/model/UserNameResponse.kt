@@ -10,9 +10,9 @@ class UserNameResponse {
     var incompleteResults: Boolean? = false
 
     @SerializedName("items")
-    var items: List<Item>? = emptyList()
+    var items: List<ItemUserName>? = emptyList()
 
-    data class Item(
+    data class ItemUserName(
         @SerializedName("login") var login: String? = null,
 
         @SerializedName("id") var id: Int? = null,

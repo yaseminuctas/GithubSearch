@@ -1,4 +1,4 @@
-package com.yaseminuctas.mvvm.util
+package com.yaseminuctas.githubsearch.util
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
