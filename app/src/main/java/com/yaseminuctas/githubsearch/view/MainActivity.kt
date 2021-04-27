@@ -16,9 +16,11 @@ import com.yaseminuctas.githubsearch.model.RepoNameResponse
 import com.yaseminuctas.githubsearch.model.UserNameResponse
 import com.yaseminuctas.githubsearch.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
+@ExperimentalCoroutinesApi
 class MainActivity : AppCompatActivity() {
     private val viewModel by viewModel<MainViewModel>()
     private lateinit var animation: AnimationDrawable
@@ -70,6 +72,8 @@ class MainActivity : AppCompatActivity() {
                 if (!userNameList.isNullOrEmpty() || !repoNameList.isNullOrEmpty()) {
                     arrangeTabLayout()
                     tabSelected(tabIndex)
+                } else {
+                    binding.tabLayout.getTabAt(0)?.select()
                 }
             }
         })

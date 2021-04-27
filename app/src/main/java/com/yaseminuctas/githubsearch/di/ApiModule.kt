@@ -1,15 +1,22 @@
 package com.yaseminuctas.githubsearch.di
 
-import com.yaseminuctas.githubsearch.model.network.Api
+import com.yaseminuctas.githubsearch.model.network.AppService
+import com.yaseminuctas.githubsearch.model.repositories.AppRepository
+import com.yaseminuctas.githubsearch.model.repositories.AppRepositoryImpl
+import com.yaseminuctas.githubsearch.model.repositories.AppServiceFactory
 import org.koin.dsl.module
-import retrofit2.Retrofit
 
 
 val apiModule = module {
 
-    fun provideApi(retrofit: Retrofit): Api {
-        return retrofit.create(Api::class.java)
+    factory<AppRepository> {
+        AppRepositoryImpl(
+            get()
+        )
     }
-    single { provideApi(get()) }
+
+    factory {
+        AppServiceFactory.buildService()
+    }
 
 }
